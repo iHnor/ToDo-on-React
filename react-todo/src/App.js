@@ -48,12 +48,21 @@ function App() {
     setTasks(tasks.filter(t => t !== task));
   }
   
+  const doneUndone = (event, task) => {
+    setTasks(tasks.map(t => {
+      if (t === task)
+        t.done = event
+        console.log();
+    }))
+    console.log(event);
+    console.log(task);
+  }
 
   return (
     <div className="Todo">
       <LeftBar />
       <div className="right-bar">
-        <Tasks tasks={tasks} onDelete={deleteTask}/>
+        <Tasks tasks={tasks} onDelete={deleteTask} onDone={doneUndone}/>
         
         <div className="form">
           <TaskForm onSubmit={addTask}/>
