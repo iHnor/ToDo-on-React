@@ -44,11 +44,16 @@ function App() {
     setTasks([...tasks, newTask])
   }
 
+  const deleteTask = (task) => {
+    setTasks(tasks.filter(t => t !== task));
+  }
+  
+
   return (
     <div className="Todo">
       <LeftBar />
       <div className="right-bar">
-        <Tasks tasks={tasks}/>
+        <Tasks tasks={tasks} onDelete={deleteTask}/>
         
         <div className="form">
           <TaskForm onSubmit={addTask}/>

@@ -1,6 +1,8 @@
 import React from 'react'
 
-const Task = ({task}) => {
+
+
+const Task = ({task, onDelete}) => {
     return (
         <div id="1" className="task">
             <div className="task-base">
@@ -8,7 +10,7 @@ const Task = ({task}) => {
                     <input type="checkbox" id="2" className="custom-checkbox" />
                     <label>{task.title}</label>
                 </div>
-                <button>x</button>
+                <button onClick={() => onDelete(task)}>x</button>
             </div>
             <div className="task-description">
                 <p>{task.description}</p>
