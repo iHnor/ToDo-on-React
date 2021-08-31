@@ -1,0 +1,104 @@
+.custom-checkbox{
+  margin-left: 20px;
+  display: inline;
+}
+
+.list-name{
+  /* color: beige; */
+  padding-left: 30px;
+  /* border-left:2px #0000001f solid; border-right: 2px #0000001f solid;  */
+
+}
+.Todo{
+  display: flex;
+  flex-direction: row;
+  min-height: 950px;
+}
+.left-bar{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25%;
+}
+.right-bar{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 75%;
+  margin-top: 30px;
+}
+#tasks{
+  width: 75%;
+  padding-left: 10%;
+  padding-right: 10%;
+  /* min-height: 850px; */
+  /* border-left:2px #0000001f solid; border-right: 2px #0000001f solid;  */
+}
+.checkboxAndTask{
+  display: flex;
+  align-items: center;
+}
+.task{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 15px;
+  min-height: 50px;
+  padding: 10px;
+  color: rgb(61, 61, 61);
+  background-color: white;
+  border:1px #61646265  solid ;
+  border-radius:10px;
+  box-shadow:3px 3px 5px rgba(153, 153, 153, 0.404);
+}
+.task-base{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-description{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-right: 50px;
+  margin-left: 40px;
+}
+.task-description p{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 200;
+  font-size: 10px;
+  margin-left: 20px;
+}
+#date{
+  text-align: right;
+  width: 30%;
+  margin-left: 40px;
+}
+.sort-buttons{
+  display: flex;
+  justify-content: space-evenly;
+  /* border-left:2px #0000001f solid; border-right: 2px #0000001f solid;  */
+  padding-top: 10px;
+}
+form{
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  /* border-left:2px #0000001f solid; border-right: 2px #0000001f solid;  */
+}
+.taskDone{
+  text-decoration: line-through;
+  color: #C0C0C0;
+}
+.lastDate{
+  color: red;
+}

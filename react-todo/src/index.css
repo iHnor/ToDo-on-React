@@ -1,0 +1,23 @@
+label{
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 400;
+  padding-left: 20px;
+}
+h1{
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 600;
+
+}
+button{
+  display: flex;
+  margin-left: 10px;
+}
+body{
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* background-image: url(./images/background-1.png); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
