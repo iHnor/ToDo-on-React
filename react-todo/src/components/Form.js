@@ -1,8 +1,26 @@
 import React from 'react';
 
-const AddForm = () => {
+const TaskForm = (props) => {
+
+    const sendForm = (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        let contact = Object.fromEntries(formData.entries())
+
+        props.onSubmit({
+            title: contact.title, 
+            done: false, 
+            description: contact.description, 
+            date: contact.date, 
+            id: 10
+        })
+        console.log(props);
+    }
+
+
+
     return (
-        <form name="addTask">
+        <form name="addTask" onSubmit={sendForm}>
             <input type="text" name="title" placeholder="Task" />
             <input type="text" name="description" placeholder="Description" />
             <input type="date" name="date" placeholder="Deadline" />
@@ -11,4 +29,4 @@ const AddForm = () => {
     )
 }
 
-export default AddForm;
+export default TaskForm;

@@ -8,8 +8,10 @@ const LeftBar = () => {
             </div>
             <div id="Lists"></div>
             <div className="sort-buttons">
-                <button onClick="showDone()" id="showBtn" disabled>Show done</button>
-                <button onClick="hideDone()" id="hideBtn" >Hide done</button>
+                {/* <button onClick="showDone()" id="showBtn" disabled>Show done</button>
+                <button onClick="hideDone()" id="hideBtn" >Hide done</button> */}
+                <button id="showBtn" disabled>Show done</button>
+                <button id="hideBtn" >Hide done</button>
             </div>
         </div>
     )
