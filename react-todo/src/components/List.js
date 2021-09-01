@@ -1,9 +1,9 @@
 import React from 'react'
 
-const List = ({ list, onCheckList }) => {
+const List = ({ list, onShowList }) => {
     return(
-        <a onClick={() => onCheckList(list)}>{list.nameList}</a>
+        <a onClick={() => onShowList(list.id)}>{list.nameList}</a>
     )
 }
 
-export default List;
+export default List

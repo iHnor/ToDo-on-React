@@ -10,7 +10,7 @@ const initialTasks = [
     done: false,
     description: "Just description",
     date: new Date("2021-08-03"),
-    id: 2,
+    id: 1,
     listsId: 1
   },
   {
@@ -18,7 +18,7 @@ const initialTasks = [
     done: false,
     description: "Just description",
     date: new Date("2021-08-03"),
-    id: 3,
+    id: 2,
     listsId: 1
   },
   {
@@ -26,7 +26,7 @@ const initialTasks = [
     done: false,
     description: "Just description",
     date: new Date("2021-08-11"),
-    id: 4,
+    id: 3,
     listsId: 2
   },
   {
@@ -34,46 +34,45 @@ const initialTasks = [
     done: false,
     description: "Just description",
     date: new Date("2021-09-09"),
-    id: 5,
-    listsId:3
+    id: 4,
+    listsId: 3
   }
 ];
 
 const initialLists = [
-  {id: 1, nameList: "First List"},
-  {id: 2, nameList: "Second List"},
-  {id: 3, nameList: "Third List"}
+  { id: 1, nameList: "First List"},
+  { id: 2, nameList: "Second List"},
+  { id: 3, nameList: "Third List"}
 ]
 
 function App() {
-  
-
   const [tasks, setTasks] = useState(initialTasks)
-
+  const [active, setActive] = useState(tasks)
+ 
   const addTask = (newTask) => {
     setTasks([...tasks, newTask])
   }
 
   const deleteTask = (task) => {
     setTasks(tasks.filter(t => t !== task));
-  }
-  
+    setActive(active.filter(t => t !== task))
+  } 
+
   const updateStatus = (event, task) => {
     task.done = event;
     setTasks(tasks.slice())
   }
-
-  const showTasksInList = (lits) => {
-    console.log('showTasksInList');
-  }
-
+  const showTasksInList = (listId) => {
+    setActive(tasks.filter(t => t.listsId === listId))
+  } 
+  
   return (
     <div className="Todo">
-      <LeftBar lists={initialLists} onCheckList={showTasksInList}/>
+      <LeftBar lists={initialLists} onShowList={showTasksInList}/>
       <div className="right-bar">
-        <Tasks tasks={tasks} onDelete={deleteTask} onCheckClick={updateStatus}/>
+        <Tasks tasks={active} onDelete={deleteTask} onCheckClick={updateStatus} />
         <div className="form">
-          <TaskForm onSubmit={addTask}/>
+          <TaskForm onSubmit={addTask} />
         </div>
 
       </div>
