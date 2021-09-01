@@ -1,18 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400;500;600;700&display=swap');
+
 label{
   font-family: 'Source Code Pro', monospace;
   font-weight: 400;
   padding-left: 20px;
 }
+a{
+  cursor: pointer;
+  text-align: center;
+  border-radius:10px;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  width: 100%;
+  background-color: azure;
+  color: rgb(0, 0, 0);
+  box-shadow:3px 3px 5px rgba(153, 153, 153, 0.404);
+  transition-duration: 0.4s;
+}
+
+a:hover{
+  background-color: #191a19e0; 
+  color: white;
+}
+
 h1{
   font-family: 'Source Code Pro', monospace;
-  font-weight: 600;
+  font-weight: 700;
   color: aliceblue;
+  font-size: 44px;
 }
 
 body{
-  padding-bottom: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
+  /* padding-bottom: 20px; */
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
   background-image: url(./background-1.png);
   /* box-shadow: inset 2000px 0 0 0 rgba(255, 248, 220, 0.1); */
   background-repeat: no-repeat;

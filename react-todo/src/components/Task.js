@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Task = ({ task, onDelete, onDone }) => {
+const Task = ({ task, onDelete, onDone: onCheckClick }) => {
     return (
         <div id="1" className="task">
             <div className="task-base">
                 <div className={"checkboxAndTask" + (task.done ? " taskDone" : "")} >
-                    <input type="checkbox" id="2" className="custom-checkbox" onClick={event => onDone(event.target.checked, task)}/>
+                    <input type="checkbox" id="2" className="custom-checkbox" onClick={event => onCheckClick(event.target.checked, task)}/>
                     <label>{task.title}</label>
                 </div>
                 <button onClick={() => onDelete(task)}>x</button>

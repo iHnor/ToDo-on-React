@@ -33,8 +33,13 @@ const initialTasks = [
     date: new Date("2021-09-09"),
     id: 5
   }
-]
+];
 
+const initialLists = [
+  {id: 1, nameList: "First List"},
+  {id: 2, nameList: "Second List"},
+  {id: 3, nameList: "Third List"}
+]
 
 function App() {
   
@@ -54,12 +59,15 @@ function App() {
     setTasks(tasks.slice())
   }
 
+  const showTasksInList = (lits) => {
+    console.log('showTasksInList');
+  }
+
   return (
     <div className="Todo">
-      <LeftBar />
+      <LeftBar lists={initialLists} onCheckList={showTasksInList}/>
       <div className="right-bar">
-        <Tasks tasks={tasks} onDelete={deleteTask} onDone={updateStatus}/>
-        {/* onDone => onCheckClick */}
+        <Tasks tasks={tasks} onDelete={deleteTask} onCheckClick={updateStatus}/>
         <div className="form">
           <TaskForm onSubmit={addTask}/>
         </div>
