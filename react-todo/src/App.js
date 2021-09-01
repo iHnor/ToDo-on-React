@@ -10,28 +10,32 @@ const initialTasks = [
     done: false,
     description: "Just description",
     date: new Date("2021-08-03"),
-    id: 2
+    id: 2,
+    listsId: 1
   },
   {
     title: "New Task",
     done: false,
     description: "Just description",
     date: new Date("2021-08-03"),
-    id: 3
+    id: 3,
+    listsId: 1
   },
   {
     title: "Second Task",
     done: false,
     description: "Just description",
     date: new Date("2021-08-11"),
-    id: 4
+    id: 4,
+    listsId: 2
   },
   {
     title: "Fix this code!",
     done: false,
     description: "Just description",
     date: new Date("2021-09-09"),
-    id: 5
+    id: 5,
+    listsId:3
   }
 ];
 

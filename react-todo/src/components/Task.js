@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Task = ({ task, onDelete, onDone: onCheckClick }) => {
+const Task = ({ task, onDelete, onCheckClick }) => {
     return (
         <div id="1" className="task">
             <div className="task-base">
