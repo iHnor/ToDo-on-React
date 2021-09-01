@@ -88,12 +88,33 @@
   /* border-left:2px #0000001f solid; border-right: 2px #0000001f solid;  */
   padding-top: 10px;
 }
-form{
+form input, form button{
+  margin-left: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-radius: 10px;
+  border: 1px #535553c5 solid;
+  text-align: center;
+  box-shadow: 3px 3px 5px rgb(153 153 153 / 40%);
+  transition-duration: 0.4s;
+} 
+form button:hover {
+  background-color: #191a19e0; 
+  color: white;
+}
+.tasks button{
   display: flex;
-  justify-content: space-evenly;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  /* border-left:2px #0000001f solid; border-right: 2px #0000001f solid;  */
+  margin-left: 10px;
+  border-radius: 10px;
+  border: 1px #535553c5 solid;
+  font-size: 14px;
+  transition-duration: 0.4s;
+  text-align: center;
+}
+
+.tasks button:hover {
+  background-color: #d82d2d; 
+  color: white;
 }
 .taskDone{
   text-decoration: line-through;

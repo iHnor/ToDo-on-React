@@ -7,33 +7,34 @@ import Tasks from './components/Tasks'
 const initialTasks = [
   {
     title: "First Task",
-    done: true,
-    description: "asdf",
-    date: "2021-08-03T00:00:00.000Z",
+    done: false,
+    description: "Just description",
+    date: new Date("2021-08-03"),
     id: 2
   },
   {
-    title: "First Task",
+    title: "New Task",
     done: false,
-    description: "asdf",
-    date: "2021-08-03T00:00:00.000Z",
-    id: 9
+    description: "Just description",
+    date: new Date("2021-08-03"),
+    id: 3
   },
   {
     title: "Second Task",
     done: false,
-    description: "sfgsf",
-    date: "2021-08-11T00:00:00.000Z",
-    id: 3
+    description: "Just description",
+    date: new Date("2021-08-11"),
+    id: 4
   },
   {
     title: "Fix this code!",
     done: false,
-    description: "sfgsf",
-    date: "2021-09-09T00:00:00.000Z",
-    id: 4
+    description: "Just description",
+    date: new Date("2021-09-09"),
+    id: 5
   }
 ]
+
 
 function App() {
   
@@ -48,22 +49,17 @@ function App() {
     setTasks(tasks.filter(t => t !== task));
   }
   
-  const doneUndone = (event, task) => {
-    setTasks(tasks.map(t => {
-      if (t === task)
-        t.done = event
-        console.log();
-    }))
-    console.log(event);
-    console.log(task);
+  const updateStatus = (event, task) => {
+    task.done = event;
+    setTasks(tasks.slice())
   }
 
   return (
     <div className="Todo">
       <LeftBar />
       <div className="right-bar">
-        <Tasks tasks={tasks} onDelete={deleteTask} onDone={doneUndone}/>
-        
+        <Tasks tasks={tasks} onDelete={deleteTask} onDone={updateStatus}/>
+        {/* onDone => onCheckClick */}
         <div className="form">
           <TaskForm onSubmit={addTask}/>
         </div>

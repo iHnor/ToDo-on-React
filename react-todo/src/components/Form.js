@@ -11,10 +11,9 @@ const TaskForm = (props) => {
             title: contact.title, 
             done: false, 
             description: contact.description, 
-            date: contact.date, 
+            date: new Date(contact.date), 
             id: 10
         })
-        console.log(props);
     }
 
 

@@ -1,10 +1,6 @@
 import React from 'react'
 
-
-
 const Task = ({ task, onDelete, onDone }) => {
-
-    // onClick={event => console.log(event.target)
     return (
         <div id="1" className="task">
             <div className="task-base">
@@ -16,7 +12,7 @@ const Task = ({ task, onDelete, onDone }) => {
             </div>
             <div className="task-description">
                 <p>{task.description}</p>
-                <p id="date" className="lastDate">{task.date}</p>
+                <p id="date" className={(new Date(task.date) < new Date() ? "lastDate" : "")}>{task.date.toLocaleDateString('uk')}</p>
             </div>
         </div>
     )
