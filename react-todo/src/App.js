@@ -1,5 +1,13 @@
 import './App.css';
 import React, { useState } from 'react';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import LeftBar from './components/LeftBar'
 import TaskForm from './components/Form';
 import Tasks from './components/Tasks'
@@ -44,14 +52,14 @@ const initialLists = [
   { id: 2, nameList: "Second List", status: false },
   { id: 3, nameList: "Third List", status: false }
 ]
-function searchActiv(){
+function searchActiv() {
   let status = initialLists.filter(l => l.status === true)
-  let defultValue = {id: 1}
+  let defultValue = { id: 1 }
   if (status[0] === undefined)
     return defultValue
-  else  
+  else
     return status[0]
-} 
+}
 
 function App() {
   const [tasks, setTasks] = useState(initialTasks)
@@ -77,18 +85,42 @@ function App() {
     setActive(tasks.filter(t => t.listsId === list.id));
   }
   return (
-    <div className="Todo">
-      <LeftBar lists={initialLists} onShowList={showTasksInList} />
-      <div className="right-bar">
-        <Tasks tasks={active} onDelete={deleteTask} onCheckClick={updateStatus} />
-        <div className="form">
-          <TaskForm onSubmit={addTask} listStatus={searchActiv()}/>
+
+
+
+    <Router>
+      <div className="Todo">
+        <LeftBar lists={initialLists} onShowList={showTasksInList} />
+
+        <div className="right-bar">
+          <Switch>
+            <Route exact path="/todolist/:id">
+              <Tasks tasks={active} onDelete={deleteTask} onCheckClick={updateStatus} />
+            </Route>
+            <Route exact path="/today">
+              {/* <Tasks tasks={active} onDelete={deleteTask} onCheckClick={updateStatus} /> */}
+            </Route>
+          </Switch>
+          <div className="form">
+            <TaskForm onSubmit={addTask} listStatus={searchActiv()} />
+          </div>
         </div>
 
       </div>
-    </div>
+
+    </Router>
+
+    // <div className="Todo">
+    //   <LeftBar lists={initialLists} onShowList={showTasksInList} />
+    //   <div className="right-bar">
+    //     <Tasks tasks={active} onDelete={deleteTask} onCheckClick={updateStatus} />
+    //     <div className="form">
+    //       <TaskForm onSubmit={addTask} listStatus={searchActiv()}/>
+    //     </div>
+
+    //   </div>
+    // </div>
   );
 }
 
 export default App;
-// tasks.map(task => React.createElement(Task, {task, key: task.id}))
