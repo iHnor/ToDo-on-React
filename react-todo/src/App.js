@@ -11,6 +11,7 @@ import {
 import LeftBar from './components/LeftBar'
 import TaskForm from './components/Form';
 import Tasks from './components/Tasks'
+import Today from './components/todayTasks';
 
 const initialTasks = [
   {
@@ -41,7 +42,7 @@ const initialTasks = [
     title: "Fix this code!",
     done: false,
     description: "Just description",
-    date: new Date("2021-09-09"),
+    date: new Date("2021-09-02"),
     id: 4,
     listsId: 3
   }
@@ -84,13 +85,14 @@ function App() {
     list.status = true
     setActive(tasks.filter(t => t.listsId === list.id));
   }
+  const showTodayTasks = (date) => {
+    const newDate = date.setHours(0, 0, 0, 0)
+    setActive(tasks.filter(t => t.date.setHours(0, 0, 0, 0) === newDate))
+  }
   return (
-
-
-
     <Router>
       <div className="Todo">
-        <LeftBar lists={initialLists} onShowList={showTasksInList} />
+        <LeftBar lists={initialLists} onShowList={showTasksInList} onTodayTasks={showTodayTasks} />
 
         <div className="right-bar">
           <Switch>
@@ -98,7 +100,7 @@ function App() {
               <Tasks tasks={active} onDelete={deleteTask} onCheckClick={updateStatus} />
             </Route>
             <Route exact path="/today">
-              {/* <Tasks tasks={active} onDelete={deleteTask} onCheckClick={updateStatus} /> */}
+              <Today todayTasks={active} onDelete={deleteTask} onCheckClick={updateStatus}/>
             </Route>
           </Switch>
           <div className="form">
