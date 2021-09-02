@@ -133,3 +133,13 @@ form button:hover {
 .Today{
   padding-bottom: 30px;
 }
+.listLink{
+  display: flex;
+  width: 100%;
+  padding-top: 5px;
+}
+.listLink a{
+  margin: 0;
+  width: 15%;
+  font-size: 15px;
+}

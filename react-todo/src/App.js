@@ -4,8 +4,7 @@ import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 import LeftBar from './components/LeftBar'
@@ -81,6 +80,7 @@ function App() {
     setTasks(tasks.slice())
   }
   const showTasksInList = (list) => {
+    console.log(list);
     initialLists.forEach(l => l.status = false)
     list.status = true
     setActive(tasks.filter(t => t.listsId === list.id));
@@ -100,7 +100,7 @@ function App() {
               <Tasks tasks={active} onDelete={deleteTask} onCheckClick={updateStatus} />
             </Route>
             <Route exact path="/today">
-              <Today todayTasks={active} onDelete={deleteTask} onCheckClick={updateStatus}/>
+              <Today todayTasks={active} lists={initialLists} onDelete={deleteTask} onCheckClick={updateStatus} onShowList={showTasksInList}/>
             </Route>
           </Switch>
           <div className="form">

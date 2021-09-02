@@ -1,7 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const TodayTask = ({ task, onDelete, onCheckClick }) => {
+const TodayTask = ({ task, lists, onDelete, onCheckClick, onShowList }) => {
+
+    console.log(lists);
+    // console.log(task.listsId);
+    function getList (){
+        let list = lists.filter(l => l.id === task.listsId)
+        return list[0]
+    }
+    const list = getList();
+    
     return (
         
         <div id="1" className="task">
@@ -16,9 +25,9 @@ const TodayTask = ({ task, onDelete, onCheckClick }) => {
                 <p>{task.description}</p>
                 <p id="date" className={(new Date(task.date) < new Date() ? "lastDate" : "")}>{task.date.toLocaleDateString('uk')}</p>
             </div>
-            {/* <div className="">
-                <Link></Link>
-            </div> */}
+            <div className="listLink">
+                <Link onClick={() => onShowList(getList())}  >{list.nameList}</Link>
+            </div>
         </div>
     )
 }
