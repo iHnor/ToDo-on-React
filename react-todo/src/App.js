@@ -41,7 +41,7 @@ const initialTasks = [
     title: "Fix this code!",
     done: false,
     description: "Just description",
-    date: new Date("2021-09-02"),
+    date: new Date("2021-09-03"),
     id: 4,
     listsId: 3
   }
@@ -80,7 +80,6 @@ function App() {
     setTasks(tasks.slice())
   }
   const showTasksInList = (list) => {
-    console.log(list);
     initialLists.forEach(l => l.status = false)
     list.status = true
     setActive(tasks.filter(t => t.listsId === list.id));
@@ -100,7 +99,14 @@ function App() {
               <Tasks tasks={active} onDelete={deleteTask} onCheckClick={updateStatus} />
             </Route>
             <Route exact path="/today">
-              <Today todayTasks={active} lists={initialLists} onDelete={deleteTask} onCheckClick={updateStatus} onShowList={showTasksInList}/>
+              <Today 
+                todayTasks={active}
+                lists={initialLists} 
+                onDelete={deleteTask} 
+                onCheckClick={updateStatus} 
+                onShowList={showTasksInList}
+                onTodayTasks={showTodayTasks}
+              />
             </Route>
           </Switch>
           <div className="form">

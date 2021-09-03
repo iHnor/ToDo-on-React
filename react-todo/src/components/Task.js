@@ -13,7 +13,7 @@ const Task = ({ task, onDelete, onCheckClick }) => {
             </div>
             <div className="task-description">
                 <p>{task.description}</p>
-                <p id="date" className={(new Date(task.date) < new Date() ? "lastDate" : "")}>{task.date.toLocaleDateString('uk')}</p>
+                <p id="date" className={(new Date(task.date).setHours(0,0,0,0) < new Date().setHours(0,0,0,0) ? "lastDate" : "")}>{task.date.toLocaleDateString('uk')}</p>
             </div>
         </div>
     )

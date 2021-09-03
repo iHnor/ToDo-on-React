@@ -104,7 +104,6 @@ form button:hover {
   color: white;
 }
 .tasks button{
-  display: flex;
   margin-left: 10px;
   border-radius: 10px;
   border: 1px #535553c5 solid;
@@ -140,6 +139,14 @@ form button:hover {
 }
 .listLink a{
   margin: 0;
-  width: 15%;
+  width: 20%;
+  max-width: 30%;
   font-size: 15px;
+}
+form {
+  justify-content: flex-end;
+}
+button.goButton:hover {
+  background-color: #191a19e0; 
+  color: white;
 }

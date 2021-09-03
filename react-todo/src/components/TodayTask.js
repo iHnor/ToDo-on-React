@@ -2,17 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const TodayTask = ({ task, lists, onDelete, onCheckClick, onShowList }) => {
-
-    console.log(lists);
-    // console.log(task.listsId);
-    function getList (){
+    
+    function getList() {
         let list = lists.filter(l => l.id === task.listsId)
         return list[0]
     }
     const list = getList();
-    
+
     return (
-        
+
         <div id="1" className="task">
             <div className="task-base">
                 <div className={"checkboxAndTask" + (task.done ? " taskDone" : "")} >
@@ -23,10 +21,10 @@ const TodayTask = ({ task, lists, onDelete, onCheckClick, onShowList }) => {
             </div>
             <div className="task-description">
                 <p>{task.description}</p>
-                <p id="date" className={(new Date(task.date) < new Date() ? "lastDate" : "")}>{task.date.toLocaleDateString('uk')}</p>
+                <p id="date" className={(new Date(task.date).setHours(0, 0, 0, 0) < new Date().setHours(0, 0, 0, 0) ? "lastDate" : "")}>{task.date.toLocaleDateString('uk')}</p>
             </div>
             <div className="listLink">
-                <Link onClick={() => onShowList(getList())}  >{list.nameList}</Link>
+                <Link onClick={() => onShowList(getList())} to={`todolist/${list.id}`} >{list.nameList}</Link>
             </div>
         </div>
     )

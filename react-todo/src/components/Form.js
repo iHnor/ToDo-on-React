@@ -2,7 +2,9 @@ import React from 'react';
 
 const TaskForm = (props) => {
     const status = props.listStatus;
+
     const sendForm = (event) => {
+        
         event.preventDefault();
         const formData = new FormData(event.target);
         let contact = Object.fromEntries(formData.entries())
@@ -14,6 +16,7 @@ const TaskForm = (props) => {
             id: 10,
             listsId: status.id
         })
+        event.target.reset()
     }
 
 
